@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+
+	<persistence-unit name="wine_store" transaction-type="RESOURCE_LOCAL">
+   		<provider>org.hibernate.ejb.HibernatePersistence</provider> <!-- provedor/implementacao do JPA -->  
+		<class>store.wine.model.OrderProduct</class>	<!-- entidade mapeada -->
+		<class>store.wine.model.OrderStore</class>
+		<class>store.wine.model.Product</class>
+		<properties>
+			<!-- dados da conexao -->
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/wine_store" />
+			<property name="javax.persistence.jdbc.user" value="postgres" />
+			<property name="javax.persistence.jdbc.password"  value="postgres" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" /><!--  propriedades do hibernate -->
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.format_sql" value="false" />
+			<property name="hibernate.hbm2ddl.auto" value="update" /><!--  atualiza o banco, gera as tabelas se for preciso -->
+		</properties>
+	</persistence-unit>
+</persistence>

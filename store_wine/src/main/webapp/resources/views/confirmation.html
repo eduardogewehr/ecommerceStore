@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Página de pedido finalizado</title>
+	</head>
+	<body>
+		<div class="col_100 f_left " ng-app="app" ng-controller="OrderController" ng-init="getLastFinishOrder()">
+	
+			<h2>PEDIDO FINALIZADO COM SUCESSO</h2>
+	
+			<div class="col_100">
+	
+				<table>
+					<tr>
+						<th class="col_20">Produto</th>
+						<th class="col_20">Quantidade</th>
+						<th class="col_20">Valor total</th>
+					</tr>
+	
+					<tr ng-repeat="item in lastFinishOrder.items">
+						<td class="col_20 t-center">{{item.product.productName}}</td>
+						<td class="col_20 t-center">{{item.quantity}}</td>
+						<td class="col_20 t-center">{{item.totalPrice}}</td>
+					</tr>
+	
+				</table>
+	
+			</div>
+	
+			<div class="col_20 m_t_30">
+	
+				<div class="col_100 p_10">
+					Valor total dos produtos : {{lastFinishOrder.totalProductsValue}}
+				</div>
+	
+				<div class="col_100 p_10">
+					Valor total do frete : {{lastFinishOrder.freightValue}}
+				</div>
+	
+				<div class="col_100 p_10">
+					Valor total do pedido : {{lastFinishOrder.freightValue+lastFinishOrder.totalProductsValue}}
+				</div>
+	
+				<div class="col_100 p_10">
+					Distancia de entrega : {{lastFinishOrder.distance}} km
+				</div>
+	
+			</div>
+	
+			<div class="col_100 f_left m_10">
+				<a class="link_back_to_home" href="/store_wine/produtos">Voltar para home</a>
+			</div>
+	
+		</div>
+	</body>
+</html>

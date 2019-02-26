@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Página de inserir produto</title>
+	</head>
+	
+	<body>
+	
+		<div class="col_100 f_left">
+	
+			<ul class="nav nav-tabs">
+				<li class="f_left" ng-class="{active: active == '/store_wine/insereProduto'}">
+					<a href="/store_wine/insereProduto">INSERIR PRODUTO</a>
+				</li>
+				<li class="f_left" ng-class="{active: active == '/store_wine/produtos'}">
+					<a href="/store_wine/produtos">PRODUTOS</a>
+				</li>
+				<li class="f_left" ng-class="{active: active == '/store_wine/carrinho'}">
+					<a href="/store_wine/carrinho">CARRINHO</a>
+				</li>
+			</ul>
+	
+		</div>
+	
+		<div class="col_100 f_left " ng-app="app">
+	
+			<h2>INSERIR PRODUTO</h2>
+	
+			<div ng-controller="ProductsController">
+	
+				<div class="col_100 f_left">
+	
+					<form name="insertProductForm">
+	
+						<div class="m_10">
+							<div class="col_25">
+								<div class="col_25 f_left">Id</div>
+								<div class="col_75">
+									<input type="number" class="w_100" ng-model="product.productId" placeholder="ID" required />
+								</div>
+							</div>
+						</div>
+						
+						<div class="m_10">
+							<div class="col_25">
+								<div class="col_25 f_left">Nome</div>
+								<div class="col_75">
+									<input type="text" class="w_100" ng-model="product.productName" placeholder="Nome" required />
+								</div>
+							</div>
+						</div>
+						
+						<div class="m_10">
+							<div class="col_25">
+								<div class="col_25 f_left">Tipo</div>
+								<div class="col_75">
+									<input type="text" class="w_100" ng-model="product.productType" placeholder="Tipo" required />
+								</div>
+							</div>
+						</div>
+						
+						<div class="m_10">
+							<div class="col_25">
+								<div class="col_25 f_left">Peso (kg)</div>
+								<div class="col_75">
+									<input type="number" class="w_100" ng-model="product.weight"
+										placeholder="Peso" min="0" step="0.01" required />
+								</div>
+							</div>
+						</div>
+						
+						<div class="m_10">
+							<div class="col_25">
+								<div class="col_25 f_left">Pre&ccedil;o</div>
+								<div class="col_75">
+									<input type="number" class="w_100" ng-model="product.price" min="0" placeholder="Pre&ccedil;o" step="0.01" required />
+								</div>
+							</div>
+						</div>
+						
+						<div class="m_t_20 m_10">
+							<div class="col_25">
+								<button type="submit" ng-disabled="!insertProductForm.$valid" ng-click="insertProduct(product)">Inserir</button>
+							</div>
+						</div>
+					</form>
+				</div>
+	
+				<div ng-switch on="response.status">
+	
+					<div class="m_10" ng-switch-when="200">Produto inserido com
+						successo</div>
+	
+					<div class="m_10" ng-switch-when="404|400|500"
+						ng-switch-when-separator="|">Erro ao inserir produto</div>
+	
+					<div ng-switch-default></div>
+				</div>
+	
+			</div>
+	
+		</div>
+	</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Página do carrinho</title>
+	</head>
+	<body>
+	
+		<div class="col_100 f_left">
+	
+			<ul class="nav nav-tabs">
+				<li class="f_left" ng-class="{active: active == '/store_wine/insereProduto'}">
+					<a href="/store_wine/insereProduto">INSERIR PRODUTO</a>
+				</li>
+				<li class="f_left" ng-class="{active: active == '/store_wine/produtos'}">
+					<a href="/store_wine/produtos">PRODUTOS</a>
+				</li>
+				<li class="f_left" ng-class="{active: active == '/store_wine/carrinho'}">
+					<a href="/store_wine/carrinho">CARRINHO</a>
+				</li>
+			</ul>
+	
+		</div>
+	
+		<div class="col_100 f_left " ng-app="app" ng-controller="OrderController" ng-init="getCurrentOrder()">
+	
+			<h2>CARRINHO</h2>
+	
+			<div class="col_100">
+	
+				<div ng-if="currentOrder.items.length == 0">
+					Nenhum item no carrinho
+				</div>
+	
+				<div ng-if="currentOrder.items.length > 0">
+					<table>
+						<tr>
+							<th class="col_20">Produto</th>
+							<th class="col_20">Quantidade</th>
+							<th class="col_20">Valor total</th>
+							<th class="col_20"></th>
+						</tr>
+	
+						<tr ng-repeat="item in currentOrder.items">
+							<td class="col_20 t-center">{{item.product.productName}}</td>
+							<td class="col_20 t-center">{{item.quantity}}</td>
+							<td class="col_20 t-center">{{item.totalPrice}}</td>
+							<td class="col_20 t-center">
+								<form novalidate class="simple-form">
+									<button ng-click="deleteItemOrder(item.itemId)">Remover</button>
+								</form>
+							</td>
+						</tr>
+	
+					</table>
+				</div>
+	
+			</div>
+	
+			<div class="col_20 m_t_30" ng-if="currentOrder.items.length > 0">
+	
+				<div class="col_100 p_10">
+					Valor total dos produtos : {{currentOrder.totalProductsValue}}
+				</div>
+	
+				<div class="col_100 p_10">
+					Valor total do frete : {{currentOrder.freightValue}}
+				</div>
+	
+				<div class="col_100 p_10">
+					Valor total do pedido : {{currentOrder.freightValue+currentOrder.totalProductsValue}}
+				</div>
+	
+				<div class="col_100 p_10">
+					Distancia atual de entrega : {{currentOrder.distance}} km
+				</div>
+	
+				<div class="col_100 p_10">
+					<form novalidate class="simple-form">
+	
+						<input type="number" ng-model="freight.distance" class="w_100" min="0" ng-init="freight.distance=0" placeholder="Distancia" />
+	
+						<button ng-click="calculateFreight(freight)">
+							Calcular frete
+						</button>
+						
+					</form>
+				</div>
+	
+				<div class="col_100 p_10" ng-if="currentOrder.items.length > 0">
+					<form novalidate class="simple-form">
+						<button ng-click="finishOrder(currentOrder)">
+							Finalizar pedido
+						</button>
+					</form>
+				</div>
+	
+			</div>
+	
+		</div>
+	
+	</body>
+</html>

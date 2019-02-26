@@ -77,7 +77,7 @@ public class ProductController {
 	    boolean created = productTools.createProduct(product);
 	    
 	    if(created){
-	    	return Response.status( 200 ).entity(product).build();
+	    	return Response.status( 201 ).entity(product).build();
 	    }else{
 			return Response.status(Status.NOT_FOUND).build();
 	    }

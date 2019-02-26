@@ -9,13 +9,12 @@
 		<properties>
 			<!-- dados da conexao -->
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/store_4" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/store" />
 			<property name="javax.persistence.jdbc.user" value="postgres" />
 			<property name="javax.persistence.jdbc.password"  value="postgres" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" /><!--  propriedades do hibernate -->
 			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.format_sql" value="false" />
-<!-- 			<property name="hibernate.hbm2ddl.auto" value="create" /> -->
 		</properties>
 	</persistence-unit>
 </persistence>

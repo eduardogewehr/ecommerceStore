@@ -7,6 +7,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
@@ -44,7 +45,7 @@ public class OrderController {
 	    boolean created = orderTools.createOrder(order);
 	    
 	    if(created){
-	    	return Response.status( 200 ).entity(order).build();
+	    	return Response.status( 201 ).entity(order).build();
 	    }else{
 			return Response.status(Status.NOT_FOUND).build();
 	    }
@@ -57,7 +58,6 @@ public class OrderController {
 	 */
 	@GET
 	@Path("/{id}")
-	@Consumes({MediaType.APPLICATION_JSON , MediaType.APPLICATION_XML})
 	public Response getOrderById(@PathParam("id") Integer id){
 		
 		Order order = orderTools.getOrderById(id);
@@ -77,6 +77,7 @@ public class OrderController {
 	@POST
 	@Path("/item")
 	@Consumes({MediaType.APPLICATION_JSON , MediaType.APPLICATION_XML})
+	@Produces({MediaType.APPLICATION_JSON , MediaType.APPLICATION_XML})
 	public Response addItemToOrder(ItemDTO itemDTO){
 		
 		Order order = orderTools.getOrderById(itemDTO.getOrderId());
@@ -116,7 +117,7 @@ public class OrderController {
 	    }
 	    
 	    if(createdOrUpdated){
-	    	return Response.status( 200 ).entity(item).build();
+	    	return Response.status( 201 ).entity(item).build();
 	    }else{
 			return Response.status(Status.NOT_FOUND).build();
 	    }
@@ -128,7 +129,6 @@ public class OrderController {
 	 */
 	@GET
 	@Path("/current/")
-	@Consumes({MediaType.APPLICATION_JSON , MediaType.APPLICATION_XML})
 	public Response getCurrentOrder(){
 	 
 		Order order = orderTools.getCurrentOrder();
@@ -162,6 +162,7 @@ public class OrderController {
 	@POST
 	@Path("/freight")
 	@Consumes({MediaType.APPLICATION_JSON , MediaType.APPLICATION_XML})
+	@Produces({MediaType.APPLICATION_JSON , MediaType.APPLICATION_XML})
 	public Response calculateFreight(FreigthDTO freight){
 		
 		Double freightValue = orderTools.calculateFreight(freight);
@@ -197,6 +198,7 @@ public class OrderController {
 	@PUT
 	@Path("/update")
 	@Consumes({MediaType.APPLICATION_JSON , MediaType.APPLICATION_XML})
+	@Produces({MediaType.APPLICATION_JSON , MediaType.APPLICATION_XML})
 	public Response updateOrderStatus(OrderStateDTO orderStatus){
 		
 		Order order = orderTools.getOrderById(orderStatus.getOrderId());
@@ -241,7 +243,7 @@ public class OrderController {
 	 */
 	@GET
 	@Path("/last/")
-	@Consumes({MediaType.APPLICATION_JSON , MediaType.APPLICATION_XML})
+	@Produces({MediaType.APPLICATION_JSON , MediaType.APPLICATION_XML})
 	public Response getLastFinishOrder(){
 	 
 		Order order = orderTools.getLastFinishOrder();

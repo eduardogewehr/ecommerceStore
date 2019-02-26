@@ -163,17 +163,22 @@ public class OrderTools {
 			Double weightTotal = 0D;
 			Double freightValue = 0D;
 			
-			for (Item itemF : order.getItems()) {
-				weightTotal = weightTotal + (itemF.getProduct().getWeight() * itemF.getQuantity());
+			if(order.getDistance() > 0){
+				
+				for (Item itemF : order.getItems()) {
+					weightTotal = weightTotal + (itemF.getProduct().getWeight() * itemF.getQuantity());
+				}
+				
+				weightTotal = weightTotal + (item.getProduct().getWeight() * item.getQuantity());
+				
+				if(order.getDistance() > 100){
+					freightValue = (weightTotal * order.getDistance())/100;
+				}else{
+					freightValue = weightTotal * 5;
+				}
+				
 			}
 			
-			weightTotal = weightTotal + (item.getProduct().getWeight() * item.getQuantity());
-			
-			if(order.getDistance() > 100){
-				freightValue = (weightTotal * order.getDistance())/100;
-			}else{
-				freightValue = weightTotal * 5;
-			}
 			
 			order.setFreightValue(freightValue);
 			
@@ -242,16 +247,19 @@ public class OrderTools {
 		Double weightTotal = 0D;
 		Double freightValue = 0D;
 		
-		for (Item item : order.getItems()) {
-			weightTotal = weightTotal + (item.getProduct().getWeight() * item.getQuantity());
+		if(freight.getDistance() > 0){
+			
+			for (Item item : order.getItems()) {
+				weightTotal = weightTotal + (item.getProduct().getWeight() * item.getQuantity());
+			}
+
+			if(freight.getDistance() > 100){
+				freightValue = (weightTotal * freight.getDistance())/100;
+			}else{
+				freightValue = weightTotal * 5;
+			}
 		}
 
-		if(freight.getDistance() > 100){
-			freightValue = (weightTotal * freight.getDistance())/100;
-		}else{
-			freightValue = weightTotal * 5;
-		}
-		
 		return freightValue;
 	}
 	
@@ -284,16 +292,20 @@ public class OrderTools {
 			Double weightTotal = 0D;
 			Double freightValue = 0D;
 			
-			for (Item itemF : order.getItems()) {
-				weightTotal = weightTotal + (itemF.getProduct().getWeight() * itemF.getQuantity());
+			if(order.getDistance() > 0){
+				
+				for (Item itemF : order.getItems()) {
+					weightTotal = weightTotal + (itemF.getProduct().getWeight() * itemF.getQuantity());
+				}
+				
+				if(order.getDistance() > 100){
+					freightValue = (weightTotal * order.getDistance())/100;
+				}else{
+					freightValue = weightTotal * 5;
+				}
+				
 			}
-			
-			if(order.getDistance() > 100){
-				freightValue = (weightTotal * order.getDistance())/100;
-			}else{
-				freightValue = weightTotal * 5;
-			}
-			
+						
 			order.setFreightValue(freightValue);
 			
 			updateOrder(order);
@@ -357,19 +369,22 @@ public class OrderTools {
 				}
 					
 				order.setTotalProductsValue(orderTotal);
-				
+			
 				Double weightTotal = 0D;
 				Double freightValue = 0D;
 				
-				for (Item itemF : order.getItems()) {
+				if(order.getDistance() > 0){
 					
-					weightTotal = weightTotal + (itemF.getProduct().getWeight() * itemF.getQuantity());
-				}
-								
-				if(order.getDistance() > 100){
-					freightValue = (weightTotal * order.getDistance())/100;
-				}else{
-					freightValue = weightTotal * 5;
+					for (Item itemF : order.getItems()) {
+						
+						weightTotal = weightTotal + (itemF.getProduct().getWeight() * itemF.getQuantity());
+					}
+									
+					if(order.getDistance() > 100){
+						freightValue = (weightTotal * order.getDistance())/100;
+					}else{
+						freightValue = weightTotal * 5;
+					}					
 				}
 				
 				order.setFreightValue(freightValue);

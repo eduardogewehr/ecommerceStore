@@ -3,8 +3,8 @@
 
 	<persistence-unit name="wine_store" transaction-type="RESOURCE_LOCAL">
    		<provider>org.hibernate.ejb.HibernatePersistence</provider> <!-- provedor/implementacao do JPA -->  
-		<class>store.wine.model.OrderProduct</class>	<!-- entidade mapeada -->
-		<class>store.wine.model.OrderStore</class>
+		<class>store.wine.model.Order</class>	<!-- entidade mapeada -->
+		<class>store.wine.model.Item</class>
 		<class>store.wine.model.Product</class>
 		<properties>
 			<!-- dados da conexao -->

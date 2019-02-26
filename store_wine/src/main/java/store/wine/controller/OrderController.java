@@ -11,14 +11,14 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import store.wine.model.FreigthDTO;
+import store.wine.model.dto.FreigthDTO;
 import store.wine.model.Item;
-import store.wine.model.ItemDTO;
+import store.wine.model.dto.ItemDTO;
 import store.wine.model.Order;
-import store.wine.model.OrderStateDTO;
-import store.wine.model.OrderTools;
+import store.wine.model.dto.OrderStateDTO;
+import store.wine.tools.OrderTools;
 import store.wine.model.Product;
-import store.wine.model.ProductTools;
+import store.wine.tools.ProductTools;
 
 /**
  * Classe responsável por mapear os serviços REST da aplicação

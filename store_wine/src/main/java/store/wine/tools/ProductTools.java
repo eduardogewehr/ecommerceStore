@@ -1,10 +1,12 @@
-package store.wine.model;
+package store.wine.tools;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import javax.ws.rs.PathParam;
+
+import store.wine.model.EntityManagerUtil;
+import store.wine.model.Product;
 
 /**
  * Classe que contém os métodos de consulta e inserção de produtos na aplicação

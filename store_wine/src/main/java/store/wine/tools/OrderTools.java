@@ -1,10 +1,12 @@
-package store.wine.model;
-
-import java.util.ArrayList;
-import java.util.List;
+package store.wine.tools;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+
+import store.wine.model.EntityManagerUtil;
+import store.wine.model.dto.FreigthDTO;
+import store.wine.model.Item;
+import store.wine.model.Order;
 
 /**
  * Classe que contém os métodos de consulta e inserção de pedidos na aplicação

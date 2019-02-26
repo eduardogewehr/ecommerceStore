@@ -1,4 +1,4 @@
-package store.wine.model;
+package store.wine.model.dto;
 
 public class ItemDTO {
 

@@ -13,9 +13,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import store.wine.model.OrderTools;
+import store.wine.tools.OrderTools;
 import store.wine.model.Product;
-import store.wine.model.ProductTools;
+import store.wine.tools.ProductTools;
 
 /**
  * Classe responsável por mapear os serviços REST da aplicação

@@ -35,7 +35,7 @@ public class OrderController {
 	/**
 	 * Serviço que cria um novo pedido
 	 * @param order - objeto com o o pedido a ser criado
-	 * @return Response - OrderStore
+	 * @return Response - Order
 	 */
 	@POST
 	@Path("/")
@@ -54,7 +54,7 @@ public class OrderController {
 	/**
 	 * Serviço que retorna um pedido a partir de um id
 	 * @param id - id do pedido a ser retornado
-	 * @return Response - OrderStore
+	 * @return Response - Order
 	 */
 	@GET
 	@Path("/{id}")
@@ -72,7 +72,7 @@ public class OrderController {
 	/**
 	 * Serviço que adiciona um item no pedido
 	 * @param orderProduct - objeto com as informações do pedido e item a ser adicionado
-	 * @return Response - OrderProduct
+	 * @return Response - Order
 	 */
 	@POST
 	@Path("/item")
@@ -125,7 +125,7 @@ public class OrderController {
 	
 	/**
 	 * Serviço que retorna o pedido atual
-	 * @return Response - OrderStore
+	 * @return Response - Order
 	 */
 	@GET
 	@Path("/current/")
@@ -157,7 +157,7 @@ public class OrderController {
 	/**
 	 * Serviço que calcula o frete de um pedido
 	 * @param freight - objeto com as informações de distancia e pedido a ter o frete calculado
-	 * @return Response - OrderProduct
+	 * @return Response - Order
 	 */
 	@POST
 	@Path("/freight")
@@ -191,9 +191,9 @@ public class OrderController {
 	}
 	
 	/**
-	 * Serviço que calcula o frete de um pedido
-	 * @param freight - objeto com as informações de distancia e pedido a ter o frete calculado
-	 * @return Response - OrderProduct
+	 * Serviço atualiza o status do pedido
+	 * @param orderStatus - objeto com o pedido e status a ser atualizado
+	 * @return Response - Order
 	 */
 	@PUT
 	@Path("/update")
@@ -221,7 +221,7 @@ public class OrderController {
 	/**
 	 * Serviço que remove um item do pedido
 	 * @param id - id do item a ser removido
-	 * @return Response - OrderProduct
+	 * @return Response 
 	 */
 	@DELETE
 	@Path("/item/{id}")
@@ -239,7 +239,7 @@ public class OrderController {
 	
 	/**
 	 * Serviço que retorna o último pedido finalizado
-	 * @return Response - OrderStore
+	 * @return Response - Order
 	 */
 	@GET
 	@Path("/last/")

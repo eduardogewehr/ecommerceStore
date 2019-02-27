@@ -19,7 +19,7 @@ public class OrderTools {
 	/**
 	 * Método responsável por retornar um pedido a partir do id informado
 	 * @param id - id do pedido a ser retornado
-	 * @return OrderStore - Pedido
+	 * @return Order - Pedido
 	 */
 	public Order getOrderById(Integer id){
 		
@@ -41,7 +41,7 @@ public class OrderTools {
 	/**
 	 * Método responsável por retornar o pedido atual - 
 	 * OBS (Como não existe controle de pedidos por usuário, o método retornará o último pedido criado no banco, que será o pedido atual a ser fechado
-	 * @return OrderStore - Pedido
+	 * @return Order - Pedido
 	 */
 	public Order getCurrentOrder(){
 		
@@ -71,7 +71,7 @@ public class OrderTools {
 	/**
 	 * Método responsável por o último pedido finalizado 
 	 * OBS (Como não existe controle de pedidos por usuário, o método retornará o último pedido criado no banco, que será o pedido atual a ser fechado
-	 * @return OrderStore - Pedido
+	 * @return Order - Pedido
 	 */
 	public Order getLastFinishOrder(){
 		
@@ -101,7 +101,7 @@ public class OrderTools {
 	/**
 	 * Método responsável por criar um pedido
 	 * @param order - objeto com o o pedido a ser criado 
-	 * @return OrderStore - Pedido
+	 * @return Order - Pedido
 	 */
 	public boolean createOrder(Order order){
 		
@@ -133,7 +133,7 @@ public class OrderTools {
 	/**
 	 * Método responsável por adicionar um produto no pedido
 	 * @param orderProduct - objeto com as informações do pedido e produto a ser adicionado
-	 * @return OrderProduct 
+	 * @return Order 
 	 */
 	public boolean createItemOrder(Item item){
 		
@@ -202,7 +202,7 @@ public class OrderTools {
 	/**
 	 * Método responsável por atualizar um pedido
 	 * @param order - objeto com as informações do pedido a ser atualizado
-	 * @return OrderProduct 
+	 * @return Order 
 	 */
 	public boolean updateOrder(Order order){
 		
@@ -228,9 +228,9 @@ public class OrderTools {
 	
 	
 	/**
-	 * Método responsável por atualizar um pedido
-	 * @param order - objeto com as informações do pedido a ser atualizado
-	 * @return OrderProduct 
+	 * Método responsável calcular o frete do pedido
+	 * @param freight - objeto com as informações do pedido e frete
+	 * @return Double - valor do frete 
 	 */
 	public Double calculateFreight(FreigthDTO freight){
 		
@@ -266,7 +266,7 @@ public class OrderTools {
 	/**
 	 * Método responsável por atualizar um item do pedido
 	 * @param item - objeto com as informações do item a ser atualizado
-	 * @return OrderProduct 
+	 * @return boolean 
 	 */
 	public boolean updateItemOrder(Item item){
 		
@@ -324,7 +324,7 @@ public class OrderTools {
 	/**
 	 * Método responsável por retornar um item do pedido a partir do id informado
 	 * @param id - id do pedido a ser retornado
-	 * @return OrderStore - Pedido
+	 * @return Item - item
 	 */
 	public Item getItemById(Integer id){
 		
@@ -346,7 +346,7 @@ public class OrderTools {
 	/**
 	 * Método responsável por remover um item do pedido
 	 * @param id - id do item a ser removido
-	 * @return OrderProduct 
+	 * @return boolean 
 	 */
 	public boolean deleteItemOrder(Integer id){
 		EntityManager em = EntityManagerUtil.getEntityManager();

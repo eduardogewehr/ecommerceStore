@@ -1,4 +1,4 @@
 # ecommerceStore
-project java, angularjs with a small ecommerce 
+Projeto desafio - Mini ecommerce loja de vinho
 
 Instruções de configuração e projeto na pasta documentos

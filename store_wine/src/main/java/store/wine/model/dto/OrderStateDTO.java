@@ -1,5 +1,11 @@
 package store.wine.model.dto;
 
+/**
+ * Classe que recebe os dados do serviço REST de atualizar status do pedido
+ * @author eduardo
+ * @version 1.0
+ *
+ */
 public class OrderStateDTO {
 
 	private Integer orderId;

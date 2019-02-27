@@ -1,5 +1,11 @@
 package store.wine.model.dto;
 
+/**
+ * Classe que recebe os dados do serviço REST de inserir e remover item do pedido
+ * @author eduardo
+ * @version 1.0
+ *
+ */
 public class ItemDTO {
 
 	private Integer orderId;
